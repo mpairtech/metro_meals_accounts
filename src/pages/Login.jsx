@@ -54,9 +54,7 @@ export default function Login() {
             style={{ width:'100%', background:'#CC1122', color:'#fff', border:'none', borderRadius:8, padding:'11px', fontSize:14, fontWeight:700, cursor:'pointer', fontFamily:'inherit', display:'flex', alignItems:'center', justifyContent:'center', gap:8 }}>
             {loading ? <><span className="loader"></span> Signing in…</> : '🔐 Sign In'}
           </button>
-          <p style={{ textAlign:'center', fontSize:12, color:'#999', marginTop:'1.2rem' }}>
-            Default: admin / admin123
-          </p>
+         
         </form>
       </div>
     </div>
