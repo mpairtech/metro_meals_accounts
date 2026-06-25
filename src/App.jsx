@@ -96,7 +96,32 @@ function Shell() {
         </div>
       )}
 
-      <main className="content">{renderPage()}</main>
+<main className="content">{renderPage()}</main>
+
+{/* Bottom Nav Bar */}
+<nav className="bottom-nav">
+  <button
+    className={`bottom-nav-item ${activePage === 'entry' ? 'active' : ''}`}
+    onClick={() => navigate('entry')}
+  >
+    <span className="bnav-icon">✏️</span>
+    <span className="bnav-label">Daily Entry</span>
+  </button>
+  <button
+    className={`bottom-nav-item ${activePage === 'records' ? 'active' : ''}`}
+    onClick={() => navigate('records')}
+  >
+    <span className="bnav-icon">📋</span>
+    <span className="bnav-label">Records</span>
+  </button>
+  <button
+    className={`bottom-nav-item ${activePage === 'inventory' ? 'active' : ''}`}
+    onClick={() => navigate('inventory')}
+  >
+    <span className="bnav-icon">📦</span>
+    <span className="bnav-label">Inventory</span>
+  </button>
+</nav>
     </div>
   );
 }
