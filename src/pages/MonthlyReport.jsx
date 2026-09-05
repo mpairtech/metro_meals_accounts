@@ -16,7 +16,6 @@ export default function MonthlyReport() {
   const [month, setMonth] = useState(currentMonth());
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const generate = async () => {
     if (!month) { toast.error('Select a month'); return; }
     setLoading(true); setReport(null);
@@ -53,6 +52,7 @@ export default function MonthlyReport() {
     downloadCSV(`MonthlyReport_${month}.csv`, ['Category','Amount (BDT)'], rows);
   };
 
+
   const handleHTML = () => {
     if (!report) return;
     const { income, expenses, commissions, totalIncome, totalExpense, totalCommission, totalOpeningInv, totalClosingInv, balance, entries } = report;
@@ -83,7 +83,6 @@ ${section('Expenses','#fdecea',expenses.map(i=>line(i.name,i.total)).join('')+li
 </div></div></body></html>`;
     downloadHTML(`MonthlyReport_${month}.html`, html);
   };
-
   return (
     <div>
       <div className="page-header"><h1>Monthly Report</h1><p>Aggregated P&L with PDF, CSV and HTML export.</p></div>
@@ -94,10 +93,10 @@ ${section('Expenses','#fdecea',expenses.map(i=>line(i.name,i.total)).join('')+li
           {loading?<><span className="loader"></span> Loading…</>:'📊 Generate'}
         </button>
         {report && <>
-          <button className="btn btn-secondary" onClick={()=>downloadMonthlyPDF(month)}>⬇ PDF</button>
-          <button className="btn btn-secondary" onClick={handleCSV}>⬇ CSV</button>
-          <button className="btn btn-secondary" onClick={handleHTML}>⬇ HTML</button>
-        </>}
+  <button className="btn btn-secondary" onClick={()=>downloadMonthlyPDF(month)}>⬇ PDF</button>
+  <button className="btn btn-secondary" onClick={handleCSV}>⬇ CSV</button>
+  <button className="btn btn-secondary" onClick={handleHTML}>⬇ HTML</button>
+</>}
       </div>
       {!report&&!loading&&<div className="empty-state"><div className="icon">📅</div><p>Select a month and click Generate.</p></div>}
       {report&&(()=>{
@@ -124,6 +123,6 @@ ${section('Expenses','#fdecea',expenses.map(i=>line(i.name,i.total)).join('')+li
           </div>
         );
       })()}
-    </div>
+</div>
   );
 }

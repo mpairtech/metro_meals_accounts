@@ -9,6 +9,7 @@ import Records from './pages/Records';
 import DailyReport from './pages/DailyReport';
 import MonthlyReport from './pages/MonthlyReport';
 import Inventory from './pages/Inventory';
+import ExpenseDashboard from './pages/ExpenseDashboard';
 import Settings from './pages/Settings';
 import logo from './assets/logo.png';
 
@@ -18,6 +19,7 @@ const ALL_PAGES = [
   { id: 'records',  label: '📋 Records',         roles: ['admin','manager','director'] },
   { id: 'daily',    label: '📊 Daily Report',    roles: ['admin','director'] },
   { id: 'monthly',  label: '📅 Monthly Report',  roles: ['admin','director'] },
+  { id: 'expense-dashboard', label: '📈 Expense Dashboard', roles: ['admin', 'director'] },
   { id: 'inventory',label: '📦 Inventory',       roles: ['admin','manager','director'] },
   { id: 'settings', label: '⚙️ Settings',        roles: ['admin'] },
 ];
@@ -50,6 +52,7 @@ function Shell() {
       case 'records':   return <Records />;
       case 'daily':     return <DailyReport />;
       case 'monthly':   return <MonthlyReport />;
+      case 'expense-dashboard': return <ExpenseDashboard />;
       case 'inventory': return <Inventory />;
       case 'settings':  return <Settings />;
       default:          return <DailyEntry />;

@@ -8,12 +8,12 @@ export default defineConfig({
     watch: {
       usePolling: false,
     },
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-      }
-    }
+   proxy: {
+  '/api': {
+    target: 'https://mmserver.g4intl.com',
+    changeOrigin: true,
+  }
+}
   },
   build: {
     outDir: 'dist',
