@@ -584,3 +584,67 @@ tbody td { padding: 10px 14px; }
   /* Add padding so content isn't hidden behind bottom nav */
   main.content { padding-bottom: 80px; }
 }
+
+/* ─── EXPENSE DASHBOARD MOBILE ──────────── */
+@media (max-width: 768px) {
+  /* Summary cards 2 column on mobile */
+  .expense-dash-cards {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Table container full width */
+  .expense-dash-table {
+    border-radius: 8px !important;
+  }
+
+  /* Sticky first column narrower */
+  .expense-dash-table table td:first-child,
+  .expense-dash-table table th:first-child {
+    min-width: 130px !important;
+    font-size: 11px !important;
+    padding: 7px 10px !important;
+  }
+
+  /* Value cells smaller */
+  .expense-dash-table table td,
+  .expense-dash-table table th {
+    font-size: 11px !important;
+    padding: 7px 6px !important;
+    min-width: 52px !important;
+  }
+
+  /* Total column */
+  .expense-dash-table table td:last-child,
+  .expense-dash-table table th:last-child {
+    min-width: 80px !important;
+    font-size: 11px !important;
+  }
+
+  /* Header bar wrap */
+  .expense-dash-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    padding: 10px 12px !important;
+  }
+
+  /* Footer note smaller */
+  .expense-dash-footer {
+    font-size: 10px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .expense-dash-table table td:first-child,
+  .expense-dash-table table th:first-child {
+    min-width: 110px !important;
+    font-size: 10px !important;
+  }
+  .expense-dash-table table td,
+  .expense-dash-table table th {
+    min-width: 46px !important;
+    font-size: 10px !important;
+    padding: 6px 4px !important;
+  }
+}
