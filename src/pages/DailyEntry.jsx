@@ -3,6 +3,7 @@ import { useApp } from '../context/AppContext';
 import { getEntry, saveEntry } from '../api';
 import { today, fmt } from '../utils';
 import { toast } from 'react-toastify';
+import { useAuth } from '../context/AuthContext';
 
 function AmountInput({ value, onChange }) {
   return (
@@ -74,6 +75,17 @@ export default function DailyEntry() {
 
   if (loading) return <div className="empty-state"><div className="icon">⏳</div><p>Loading…</p></div>;
 
+  const { user } = useAuth();
+
+if (user?.role === 'director') {
+  return (
+    <div className="empty-state">
+      <div className="icon">🔒</div>
+      <p>Access Denied</p>
+      <small>Directors do not have access to Daily Entry.</small>
+    </div>
+  );
+} 
   return (
     <div>
       <div className="page-header">

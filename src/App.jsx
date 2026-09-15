@@ -103,6 +103,8 @@ function Shell() {
 
 {/* Bottom Nav Bar */}
 <nav className="bottom-nav">
+ 
+  {can('admin', 'manager') && (
   <button
     className={`bottom-nav-item ${activePage === 'entry' ? 'active' : ''}`}
     onClick={() => navigate('entry')}
@@ -110,6 +112,8 @@ function Shell() {
     <span className="bnav-icon">✏️</span>
     <span className="bnav-label">Daily Entry</span>
   </button>
+)}
+
   <button
     className={`bottom-nav-item ${activePage === 'records' ? 'active' : ''}`}
     onClick={() => navigate('records')}
